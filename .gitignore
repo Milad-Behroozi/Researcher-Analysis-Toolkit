@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*.log
+.venv/
+.packaging-venv/
+build/
+dist/
+packaging/output/
+*.spec
+python-3.11.9-amd64.exe
+.idea/
+.vscode/
+Thumbs.db
+.DS_Store
