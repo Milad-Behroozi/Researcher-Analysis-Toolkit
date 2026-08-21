@@ -1,0 +1,8 @@
+Python 3.11.9 Windows x64 runtime used by the release builder
+Source: https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe
+File size: 26216840 bytes
+SHA-256: 5ee42c4eee1e6b4464bb23722f90b45303f79442df63083f05322f1785f5fdde
+
+The executable is intentionally not committed to the repository. Run
+download_python_runtime.ps1, run.bat, or build_windows.bat to download it from
+python.org and verify the checksum before use.

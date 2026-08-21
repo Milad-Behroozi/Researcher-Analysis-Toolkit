@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the software release and the associated article once available."
+title: "Researcher Analysis Toolkit for Integrated Analysis of Electrochemical and Photoelectrochemical Data"
+type: software
+version: 1.0.0
+date-released: 2026-08-22
+authors:
+  - family-names: Behroozi
+    given-names: Milad
+abstract: "A graphical, modular toolkit for electrochemical, photoelectrochemical, optical, and spectroscopic data analysis."
+keywords:
+  - electrochemistry
+  - photoelectrochemistry
+  - impedance spectroscopy
+  - scientific software
+

@@ -1,0 +1,29 @@
+{
+  "description": "Synthetic EIS benchmark for automatic circuit-selection testing.",
+  "generating_circuit": "R0-p(R1,CPE1)-p(R2,CPE2)",
+  "parameters": {
+    "R0_ohm": 10.0,
+    "R1_ohm": 10.0,
+    "Q1_S_s_n": 0.0001,
+    "n1": 0.85,
+    "R2_ohm": 15.0,
+    "Q2_S_s_n": 0.001,
+    "n2": 0.5
+  },
+  "frequency_range_Hz": [
+    0.01,
+    1000000.0
+  ],
+  "frequency_distribution": "logarithmic, descending",
+  "point_count": 81,
+  "noise_definition": "Independent Gaussian noise added to the real and imaginary components with sigma = noise_fraction * |Z|.",
+  "random_seed": 20260723,
+  "datasets": {
+    "EIS_two_relaxation_noise0.csv": {
+      "noise_fraction": 0.0
+    },
+    "EIS_two_relaxation_noise3.csv": {
+      "noise_fraction": 0.03
+    }
+  }
+}

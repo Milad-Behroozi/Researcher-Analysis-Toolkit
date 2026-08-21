@@ -1,0 +1,69 @@
+{
+  "manifest_version": "1.0",
+  "toolkit_version": "1.0.0-rc1",
+  "purpose": "Manual smoke-test anchors for documented example settings; not universal pass/fail values.",
+  "examples": [
+    {
+      "id": "tafel_experimental",
+      "input": "tafel/LSV_oxygen_deficient_tungsten_oxide_example.csv",
+      "module": "LSV and Tafel",
+      "settings_note": "Use the illustrated potential-based Tafel window and the same normalization/reference settings.",
+      "anchors": {
+        "apparent_tafel_slope_mV_per_dec": {"value": 164.98, "tolerance": 0.5},
+        "R_squared": {"value": 0.99997, "minimum": 0.999}
+      }
+    },
+    {
+      "id": "mott_schottky_experimental",
+      "input": "mott_schottky/Mott_Schottky_cerium_oxide_based_example.csv",
+      "module": "Mott-Schottky",
+      "settings_note": "The intercept depends on the selected linear region and potential reference scale.",
+      "anchors": {
+        "illustrated_flat_band_potential_V": {"value": 0.169, "tolerance": 0.01},
+        "conductivity_type": "n-type"
+      }
+    },
+    {
+      "id": "trpl_experimental",
+      "input": "trpl/TRPL_example.xlsx",
+      "module": "TRPL",
+      "settings_note": "Use the illustrated biexponential model and selected decay range.",
+      "anchors": {
+        "average_lifetime_ns": {"value": 0.5064535696, "tolerance": 0.01},
+        "illustrated_R_squared": {"value": 0.9527230923, "tolerance": 0.01}
+      }
+    },
+    {
+      "id": "tauc_experimental",
+      "input": "tauc/Tauc_diffuse_reflectance_example.xlsx",
+      "module": "Tauc",
+      "settings_note": "Diffuse-reflectance/Kubelka-Munk workflow, direct transition, and the illustrated baseline/tangent regions.",
+      "anchors": {
+        "optical_band_gap_eV": {"value": 3.273, "tolerance": 0.01}
+      }
+    },
+    {
+      "id": "eis_synthetic_noise_free",
+      "input": "eis/EIS_two_relaxation_noise0.csv",
+      "module": "Manual or automatic EIS",
+      "settings_note": "Use modulus-weighted real and imaginary residuals and inspect parameter bounds/identifiability.",
+      "anchors": {
+        "generating_circuit": "R0-p(R1,CPE1)-p(R2,CPE2)",
+        "parameter_source": "eis/benchmark_metadata.json",
+        "expected_bound_violations": "none"
+      }
+    },
+    {
+      "id": "eis_synthetic_noise_3_percent",
+      "input": "eis/EIS_two_relaxation_noise3.csv",
+      "module": "Automatic EIS",
+      "settings_note": "Confirm that the generating topology is among the best physically valid candidates; stochastic optimization can alter exact fitted values.",
+      "anchors": {
+        "generating_circuit": "R0-p(R1,CPE1)-p(R2,CPE2)",
+        "noise_fraction": 0.03,
+        "random_seed": 20260723
+      }
+    }
+  ]
+}
+
