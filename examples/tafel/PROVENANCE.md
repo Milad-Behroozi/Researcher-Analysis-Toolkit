@@ -8,6 +8,7 @@
   oxygen-deficient tungsten oxide example.
 - Columns: `Potential_V` and `Current_A`.
 - Reference output: `../reference_outputs/Tafel_reference_output.png`.
+- Reported use: representative input for Figure S2 and the LSV/Tafel numerical consistency check reported in Table S4 of the Supporting Information.
 
 The analysis requires the user to define electrode area, reference conversion,
 pH, reaction mode, current normalization, and a defensible fitting window.
