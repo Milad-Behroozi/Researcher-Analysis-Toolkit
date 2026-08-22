@@ -5,16 +5,14 @@
 - All root Python files parse successfully.
 - Every module target declared by the launcher exists.
 - Experimental example files pass structural and finite-value checks.
-- The synthetic EIS generator is deterministic and its datasets match the
-  documented row count, frequency order, topology, parameters, noise level, and
-  seed.
+- The synthetic EIS generator is deterministic and its datasets match the documented row count, frequency order, topology, parameters, noise level, and seed.
 - The validation manifest resolves to existing files.
-- Python 3.11 is enforced for the application environment; incompatible older
-  environments are replaced automatically.
+- Python 3.11 is enforced for the application environment; incompatible environments are replaced automatically.
 - The Python runtime downloader verifies the official installer by SHA-256.
+- `Setup.exe` was built on Windows, and its SHA-256 checksum was published with the release.
+- Clean installation and module-launch testing were completed successfully on a second Windows x64 computer.
 
-These checks run through `tests/test_repository_structure.py` and GitHub
-Actions.
+The repository checks run through `tests/test_repository_structure.py` and GitHub Actions. The Windows installation checks were performed manually on two computers.
 
 ## Still required before calling v1.0.0 fully validated
 
