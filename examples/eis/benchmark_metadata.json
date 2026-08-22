@@ -1,29 +1,106 @@
 {
-  "description": "Synthetic EIS benchmark for automatic circuit-selection testing.",
-  "generating_circuit": "R0-p(R1,CPE1)-p(R2,CPE2)",
-  "parameters": {
-    "R0_ohm": 10.0,
-    "R1_ohm": 10.0,
-    "Q1_S_s_n": 0.0001,
-    "n1": 0.85,
-    "R2_ohm": 15.0,
-    "Q2_S_s_n": 0.001,
-    "n2": 0.5
-  },
+  "schema_version": "2.0",
+  "description": "Synthetic EIS benchmark datasets for user-defined fitting, automatic topology ranking, and noise-response evaluation.",
+  "generator": "generate_synthetic_eis.py",
   "frequency_range_Hz": [
     0.01,
     1000000.0
   ],
   "frequency_distribution": "logarithmic, descending",
-  "point_count": 81,
-  "noise_definition": "Independent Gaussian noise added to the real and imaginary components with sigma = noise_fraction * |Z|.",
+  "point_count": 50,
+  "noise_definition": "Independent Gaussian noise is added to the real and imaginary impedance components with sigma = noise_fraction * |Z_clean|.",
+  "noise_levels_fraction": [
+    0.0,
+    0.01,
+    0.03,
+    0.05
+  ],
   "random_seed": 20260723,
-  "datasets": {
-    "EIS_two_relaxation_noise0.csv": {
-      "noise_fraction": 0.0
+  "element_definitions": {
+    "CPE": "Z_CPE = 1 / [Q * (j * omega)^n]",
+    "W": "Z_W = W * (1 - j) / sqrt(omega)"
+  },
+  "circuits": [
+    {
+      "name": "single_relaxation",
+      "generating_circuit": "R0-p(R1,CPE1)",
+      "parameters": {
+        "R0_ohm": 10.0,
+        "R1_ohm": 10.0,
+        "Q1_S_s_n": 0.0001,
+        "n1": 0.85
+      },
+      "datasets": {
+        "EIS_single_relaxation_noise0.csv": {
+          "noise_fraction": 0.0
+        },
+        "EIS_single_relaxation_noise1.csv": {
+          "noise_fraction": 0.01
+        },
+        "EIS_single_relaxation_noise3.csv": {
+          "noise_fraction": 0.03
+        },
+        "EIS_single_relaxation_noise5.csv": {
+          "noise_fraction": 0.05
+        }
+      }
     },
-    "EIS_two_relaxation_noise3.csv": {
-      "noise_fraction": 0.03
+    {
+      "name": "two_relaxation",
+      "generating_circuit": "R0-p(R1,CPE1)-p(R2,CPE2)",
+      "parameters": {
+        "R0_ohm": 10.0,
+        "R1_ohm": 10.0,
+        "Q1_S_s_n": 0.0001,
+        "n1": 0.85,
+        "R2_ohm": 15.0,
+        "Q2_S_s_n": 0.001,
+        "n2": 0.5
+      },
+      "datasets": {
+        "EIS_two_relaxation_noise0.csv": {
+          "noise_fraction": 0.0
+        },
+        "EIS_two_relaxation_noise1.csv": {
+          "noise_fraction": 0.01
+        },
+        "EIS_two_relaxation_noise3.csv": {
+          "noise_fraction": 0.03
+        },
+        "EIS_two_relaxation_noise5.csv": {
+          "noise_fraction": 0.05
+        }
+      }
+    },
+    {
+      "name": "diffusion",
+      "generating_circuit": "R0-p(R1,CPE1)-W1",
+      "parameters": {
+        "R0_ohm": 10.0,
+        "R1_ohm": 10.0,
+        "Q1_S_s_n": 0.0001,
+        "n1": 0.85,
+        "W1_ohm_s_minus_half": 10.0
+      },
+      "datasets": {
+        "EIS_diffusion_noise0.csv": {
+          "noise_fraction": 0.0
+        },
+        "EIS_diffusion_noise1.csv": {
+          "noise_fraction": 0.01
+        },
+        "EIS_diffusion_noise3.csv": {
+          "noise_fraction": 0.03
+        },
+        "EIS_diffusion_noise5.csv": {
+          "noise_fraction": 0.05
+        }
+      }
     }
-  }
+  ],
+  "automatic_topology_ranking_datasets": [
+    "EIS_single_relaxation_noise0.csv",
+    "EIS_two_relaxation_noise3.csv",
+    "EIS_diffusion_noise5.csv"
+  ]
 }
