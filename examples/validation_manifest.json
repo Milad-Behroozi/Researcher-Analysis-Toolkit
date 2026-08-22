@@ -1,25 +1,34 @@
 {
-  "manifest_version": "1.0",
+  "manifest_version": "2.0",
   "toolkit_version": "1.0.0-rc1",
-  "purpose": "Manual smoke-test anchors for documented example settings; not universal pass/fail values.",
+  "purpose": "Manual smoke-test anchors for the documented example settings; these values are not universal pass/fail criteria.",
   "examples": [
     {
       "id": "tafel_experimental",
       "input": "tafel/LSV_oxygen_deficient_tungsten_oxide_example.csv",
       "module": "LSV and Tafel",
-      "settings_note": "Use the illustrated potential-based Tafel window and the same normalization/reference settings.",
+      "settings_note": "Use the illustrated potential-based Tafel window and the same current normalization and reference settings.",
       "anchors": {
-        "apparent_tafel_slope_mV_per_dec": {"value": 164.98, "tolerance": 0.5},
-        "R_squared": {"value": 0.99997, "minimum": 0.999}
+        "apparent_tafel_slope_mV_per_dec": {
+          "value": 164.98,
+          "tolerance": 0.5
+        },
+        "R_squared": {
+          "value": 0.99997,
+          "minimum": 0.999
+        }
       }
     },
     {
       "id": "mott_schottky_experimental",
       "input": "mott_schottky/Mott_Schottky_cerium_oxide_based_example.csv",
       "module": "Mott-Schottky",
-      "settings_note": "The intercept depends on the selected linear region and potential reference scale.",
+      "settings_note": "Use the illustrated linear region and the same RHE reference conversion.",
       "anchors": {
-        "illustrated_flat_band_potential_V": {"value": 0.169, "tolerance": 0.01},
+        "illustrated_flat_band_potential_V_vs_RHE": {
+          "value": -0.169,
+          "tolerance": 0.01
+        },
         "conductivity_type": "n-type"
       }
     },
@@ -27,43 +36,82 @@
       "id": "trpl_experimental",
       "input": "trpl/TRPL_example.xlsx",
       "module": "TRPL",
-      "settings_note": "Use the illustrated biexponential model and selected decay range.",
+      "settings_note": "Use the illustrated biexponential model and selected decay interval.",
       "anchors": {
-        "average_lifetime_ns": {"value": 0.5064535696, "tolerance": 0.01},
-        "illustrated_R_squared": {"value": 0.9527230923, "tolerance": 0.01}
+        "average_lifetime_ns": {
+          "value": 0.50635,
+          "tolerance": 0.01
+        },
+        "illustrated_R_squared": {
+          "value": 0.9527230923,
+          "tolerance": 0.01
+        }
       }
     },
     {
       "id": "tauc_experimental",
       "input": "tauc/Tauc_diffuse_reflectance_example.xlsx",
       "module": "Tauc",
-      "settings_note": "Diffuse-reflectance/Kubelka-Munk workflow, direct transition, and the illustrated baseline/tangent regions.",
+      "settings_note": "Use the diffuse-reflectance/Kubelka-Munk workflow, a direct allowed transition, and the illustrated baseline and tangent intervals.",
       "anchors": {
-        "optical_band_gap_eV": {"value": 3.273, "tolerance": 0.01}
+        "optical_band_gap_eV": {
+          "value": 3.273,
+          "tolerance": 0.01
+        }
       }
     },
     {
-      "id": "eis_synthetic_noise_free",
-      "input": "eis/EIS_two_relaxation_noise0.csv",
-      "module": "Manual or automatic EIS",
-      "settings_note": "Use modulus-weighted real and imaginary residuals and inspect parameter bounds/identifiability.",
+      "id": "eis_single_relaxation_noise0",
+      "input": "eis/EIS_single_relaxation_noise0.csv",
+      "module": "Automatic EIS",
+      "settings_note": "Use the automatic topology-ranking workflow and evaluate fit quality, physical status, and parameter-bound diagnostics.",
       "anchors": {
-        "generating_circuit": "R0-p(R1,CPE1)-p(R2,CPE2)",
-        "parameter_source": "eis/benchmark_metadata.json",
-        "expected_bound_violations": "none"
+        "generating_circuit": "R0-p(R1,CPE1)",
+        "top_ranked_circuit": "R0-p(R1,CPE1)",
+        "physical_status": "OK",
+        "bound_hits": 0,
+        "modulus_weighted_RMS": {
+          "value": 4.49e-13,
+          "tolerance": 1e-10
+        },
+        "parameter_source": "eis/benchmark_metadata.json"
       }
     },
     {
-      "id": "eis_synthetic_noise_3_percent",
+      "id": "eis_two_relaxation_noise3",
       "input": "eis/EIS_two_relaxation_noise3.csv",
       "module": "Automatic EIS",
-      "settings_note": "Confirm that the generating topology is among the best physically valid candidates; stochastic optimization can alter exact fitted values.",
+      "settings_note": "Use the automatic topology-ranking workflow. Small numerical differences may occur during stochastic optimization.",
       "anchors": {
         "generating_circuit": "R0-p(R1,CPE1)-p(R2,CPE2)",
+        "top_ranked_circuit": "R0-p(R1,CPE1)-p(R2,CPE2)",
         "noise_fraction": 0.03,
-        "random_seed": 20260723
+        "physical_status": "OK",
+        "bound_hits": 1,
+        "modulus_weighted_RMS": {
+          "value": 0.04434,
+          "tolerance": 0.005
+        },
+        "parameter_source": "eis/benchmark_metadata.json"
+      }
+    },
+    {
+      "id": "eis_diffusion_noise5",
+      "input": "eis/EIS_diffusion_noise5.csv",
+      "module": "Automatic EIS",
+      "settings_note": "Use the automatic topology-ranking workflow and inspect the selected Warburg-containing candidates together with their diagnostics.",
+      "anchors": {
+        "generating_circuit": "R0-p(R1,CPE1)-W1",
+        "top_ranked_circuit": "R0-p(R1,CPE1)-W1",
+        "noise_fraction": 0.05,
+        "physical_status": "OK",
+        "bound_hits": 0,
+        "modulus_weighted_RMS": {
+          "value": 0.0699,
+          "tolerance": 0.01
+        },
+        "parameter_source": "eis/benchmark_metadata.json"
       }
     }
   ]
 }
-
