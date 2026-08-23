@@ -34,7 +34,7 @@
     },
     {
       "id": "trpl_experimental",
-      "input": "trpl/TRPL_example.xlsx",
+      "input": "trpl/TRPL_example.csv",
       "module": "TRPL",
       "settings_note": "Use the illustrated biexponential model and selected decay interval.",
       "anchors": {
@@ -50,7 +50,7 @@
     },
     {
       "id": "tauc_experimental",
-      "input": "tauc/Tauc_diffuse_reflectance_example.xlsx",
+      "input": "tauc/Tauc_diffuse_reflectance_example.csv",
       "module": "Tauc",
       "settings_note": "Use the diffuse-reflectance/Kubelka-Munk workflow, a direct allowed transition, and the illustrated baseline and tangent intervals.",
       "anchors": {
