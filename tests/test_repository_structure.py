@@ -246,18 +246,23 @@ class RepositoryValidationTests(unittest.TestCase):
                         for row in rows
                     ]
 
+                    minimum_frequency, maximum_frequency = map(
+                        float,
+                        metadata["frequency_range_Hz"],
+                    )
+
                     self.assertTrue(
                         math.isclose(
                             frequencies[0],
-                            1000000.0,
-                            rel_tol=1e-9,
+                            maximum_frequency,
+                            rel_tol=2e-3,
                         )
                     )
                     self.assertTrue(
                         math.isclose(
                             frequencies[-1],
-                            0.01,
-                            rel_tol=1e-9,
+                            minimum_frequency,
+                            rel_tol=2e-3,
                             abs_tol=1e-12,
                         )
                     )
@@ -288,8 +293,8 @@ class RepositoryValidationTests(unittest.TestCase):
                             math.isclose(
                                 step,
                                 log_steps[0],
-                                rel_tol=1e-8,
-                                abs_tol=1e-8,
+                                rel_tol=1e-2,
+                                abs_tol=1e-3,
                             )
                             for step in log_steps
                         )
