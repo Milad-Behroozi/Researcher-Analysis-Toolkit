@@ -232,11 +232,7 @@ class RepositoryValidationTests(unittest.TestCase):
                         reader = csv.DictReader(handle)
                         self.assertEqual(
                             reader.fieldnames,
-                            [
-                                "frequency_Hz",
-                                "Z_real_ohm",
-                                "Z_imag_ohm",
-                            ],
+                            ["Freq/Hz", "Z'/ohm", 'Z"/ohm', "Z/ohm", "Phase/deg"],
                         )
                         rows = list(reader)
 
@@ -246,7 +242,7 @@ class RepositoryValidationTests(unittest.TestCase):
                     )
 
                     frequencies = [
-                        float(row["frequency_Hz"])
+                        float(row["Freq/Hz"])
                         for row in rows
                     ]
 
