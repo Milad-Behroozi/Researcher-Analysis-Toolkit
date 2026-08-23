@@ -10,7 +10,7 @@ Three equivalent-circuit configurations were used:
 * `R0-p(R1,CPE1)-p(R2,CPE2)`, representing two distributed relaxation processes;
 * `R0-p(R1,CPE1)-W1`, representing a distributed relaxation followed by a semi-infinite Warburg contribution.
 
-For every circuit, spectra were calculated at 50 logarithmically spaced frequencies between 10⁶ and 10⁻² Hz in descending order. Separate datasets were generated with 0, 1, 3, and 5% independent Gaussian noise applied to the real and imaginary impedance components. A fixed random-number seed of `20260723` was used to provide reproducible datasets.
+For each circuit, spectra were calculated at 50 logarithmically spaced frequencies from 10⁻² to 10⁶ Hz and arranged in ascending order. Separate datasets were generated with 0, 1, 3, and 5% independent Gaussian noise added to the real and imaginary impedance components. A fixed random seed of 20260723 was used to ensure reproducibility.
 
 The generating circuit, assigned element values, frequency settings, noise definition, and dataset-specific noise fractions are documented in `benchmark_metadata.json`. The files follow the naming convention:
 
