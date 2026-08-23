@@ -151,7 +151,7 @@ class RepositoryValidationTests(unittest.TestCase):
         )
         self.assertEqual(
             metadata["frequency_distribution"],
-            "logarithmic, descending",
+            "logarithmic, ascending",
         )
 
         expected_files = {
@@ -253,14 +253,14 @@ class RepositoryValidationTests(unittest.TestCase):
 
                     self.assertTrue(
                         math.isclose(
-                            frequencies[0],
+                            frequencies[-1],
                             maximum_frequency,
                             rel_tol=2e-3,
                         )
                     )
                     self.assertTrue(
                         math.isclose(
-                            frequencies[-1],
+                            frequencies[0],
                             minimum_frequency,
                             rel_tol=2e-3,
                             abs_tol=1e-12,
@@ -268,7 +268,7 @@ class RepositoryValidationTests(unittest.TestCase):
                     )
                     self.assertTrue(
                         all(
-                            first > second
+                            first < second
                             for first, second in zip(
                                 frequencies,
                                 frequencies[1:],
