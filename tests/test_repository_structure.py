@@ -297,15 +297,11 @@ class RepositoryValidationTests(unittest.TestCase):
 
                     for row in rows:
                         values = [
-                            float(
-                                row["frequency_Hz"]
-                            ),
-                            float(
-                                row["Z_real_ohm"]
-                            ),
-                            float(
-                                row["Z_imag_ohm"]
-                            ),
+                            float(row["Freq/Hz"]),
+                            float(row["Z'/ohm"]),
+                            float(row['Z"/ohm']),
+                            float(row["Z/ohm"]),
+                            float(row["Phase/deg"]),
                         ]
                         self.assertTrue(
                             all(
