@@ -6,7 +6,7 @@
     0.01,
     1000000.0
   ],
-  "frequency_distribution": "logarithmic, descending",
+  "frequency_distribution": "logarithmic, ascending",
   "point_count": 50,
   "noise_definition": "Independent Gaussian noise is added to the real and imaginary impedance components with sigma = noise_fraction * |Z_clean|.",
   "noise_levels_fraction": [
