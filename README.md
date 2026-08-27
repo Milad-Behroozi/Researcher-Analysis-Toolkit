@@ -1,7 +1,7 @@
 # Researcher Analysis Toolkit
 
-**Integrated analysis of electrochemical, photoelectrochemical, optical, and
-spectroscopic data through a graphical desktop interface.**
+**Researcher Analysis Toolkit for Integrated and Traceable Evaluation of 
+Electrochemical, Photoelectrochemical, and Spectroscopic Data.**
 
 Researcher Analysis Toolkit combines independent analysis modules in one
 launcher so that experimental data can be processed, fitted, visualized, and
