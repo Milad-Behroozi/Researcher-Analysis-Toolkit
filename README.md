@@ -1,7 +1,7 @@
 # Researcher Analysis Toolkit
 
 **Researcher Analysis Toolkit for Integrated and Traceable Evaluation of 
-Electrochemical, Photoelectrochemical, and Spectroscopic Data.**
+Electrochemical, Photoelectrochemical, and Spectroscopic Data**
 
 Researcher Analysis Toolkit combines independent analysis modules in one
 launcher so that experimental data can be processed, fitted, visualized, and
