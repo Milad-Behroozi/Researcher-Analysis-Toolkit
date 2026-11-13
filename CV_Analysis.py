@@ -325,7 +325,17 @@ def build_pdf(pdf_path: str, meta: Dict[str, str], df_sr: pd.DataFrame, df_main:
     story = []
     story.append(Paragraph("<b>Official CV Analysis Report</b>", styles["Title"]))
     story.append(Spacer(1, 12))
-
+    story.append(Paragraph(
+        "Generated with Researcher Analysis Toolkit v1.0.0",
+        styles["BodyText"],
+    ))
+    story.append(Paragraph(
+        '<b>Suggested citation</b> · Behroozi et al., <i>RSC Adv.</i> (2026). '
+        '<link href="https://doi.org/10.1039/D6RA08618G" color="#1F4E79">'
+        '<u>10.1039/D6RA08618G</u></link>',
+        styles["BodyText"],
+    ))
+    story.append(Spacer(1, 12))
     story.append(Paragraph("<b>Settings & Metadata</b>", styles["Heading2"]))
     story.append(Spacer(1, 6))
     story.append(Paragraph("<br/>".join([f"<b>{k}:</b> {v}" for k, v in meta.items()]), styles["BodyText"]))
