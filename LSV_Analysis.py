@@ -175,10 +175,19 @@ def write_pdf_report(pdf_path: str,
         fig.text(0.08, 0.71, notice, fontsize=10)
 
         # Citation
-        cite = ("Software Citation Notice\n"
-                "This analysis was performed using *Researcher Analysis Toolkit*.\n"
-                "Please cite: XXXX when publishing results derived from this report.")
-        fig.text(0.08, 0.64, cite, fontsize=10)
+        doi = "10.1039/D6RA08618G"
+        fig.text(
+            0.08, 0.64,
+            "Generated with Researcher Analysis Toolkit v1.0.0",
+            fontsize=10,
+        )
+        fig.text(
+            0.08, 0.615,
+            f"Suggested citation · Behroozi et al., RSC Adv. (2026). {doi}",
+            fontsize=10,
+            color="#1F4E79",
+            url=f"https://doi.org/{doi}",
+        )
 
         # Footer
         fig.text(0.92, 0.03, "Researcher Analysis Toolkit", ha="right", fontsize=9, alpha=0.7)
