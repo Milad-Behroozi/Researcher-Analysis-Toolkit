@@ -383,6 +383,11 @@ class EISCSVGUI:
                 },
                 "noise_percent": noise_percent,
                 "seed": seed,
+                "related_article": {
+                    "citation": "Behroozi et al., RSC Adv. (2026).",
+                    "doi": "10.1039/D6RA08618G",
+                    "url": "https://doi.org/10.1039/D6RA08618G",
+                },
                 "files": {
                     "clean_csv": os.path.basename(clean_csv),
                     "noisy_csv": (
