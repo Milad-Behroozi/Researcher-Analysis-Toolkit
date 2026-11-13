@@ -1006,7 +1006,12 @@ class TEAM_PEC_Analyzer:
 </head>
 <body>
 
-<h1>Research Analysis Toolkit - ABPE</h1>
+<h1>Researcher Analysis Toolkit - ABPE</h1>
+<p>Generated with Researcher Analysis Toolkit v1.0.0</p>
+<p>
+    <strong>Suggested citation</strong> · Behroozi et al., <i>RSC Adv.</i> (2026).
+    <a href="https://doi.org/10.1039/D6RA08618G">10.1039/D6RA08618G</a>
+</p>
 
 <div class="meta">
     <p><strong>Generated:</strong> {now_txt}</p>
@@ -1106,10 +1111,22 @@ class TEAM_PEC_Analyzer:
 
             pdf.add_page()
             pdf.set_font("Arial", "B", 20)
-            pdf.cell(0, 12, "Research Analysis Toolkit", ln=True, align="C")
+            pdf.cell(0, 12, "Researcher Analysis Toolkit", ln=True, align="C")
             pdf.set_font("Arial", "I", 13)
             pdf.cell(0, 8, "Photoelectrochemical ABPE Report", ln=True, align="C")
-            pdf.ln(10)
+
+            pdf.set_font("Arial", "", 10)
+            pdf.cell(0, 6, "Generated with Researcher Analysis Toolkit v1.0.0", ln=True, align="C")
+            pdf.set_text_color(31, 78, 121)
+            pdf.cell(
+                0, 6,
+                "Suggested citation · Behroozi et al., RSC Adv. (2026). 10.1039/D6RA08618G",
+                ln=True,
+                align="C",
+                link="https://doi.org/10.1039/D6RA08618G",
+            )
+            pdf.set_text_color(0, 0, 0)
+            pdf.ln(4)
 
             pdf.set_font("Arial", "", 11)
             pdf.multi_cell(
