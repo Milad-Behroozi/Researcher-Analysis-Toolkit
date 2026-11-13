@@ -3,7 +3,7 @@
 The functions in this module deliberately avoid GUI state and the
 ``impedance.py`` fitting API wherever possible.  This keeps the physical
 feature extraction and candidate-screening logic deterministic, testable, and
-fast.  The fitting front end in :mod:`eis_auto_v2` adds model-specific
+fast. The fitting front end in :mod:`eis_auto` adds model-specific
 diagnostics after each candidate has been fitted.
 
 The automatic workflow is a *candidate-ranking* system.  Equivalent circuits
