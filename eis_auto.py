@@ -194,7 +194,7 @@ def draw_circuit_to_file(circuit_str, filename):
                 parts.append(last)
 
             return parts
-        # --- توابع کمکی رسم ---
+        
         def draw_resistor(ax, start, end, label=None):
             x0, y0 = start; x1, y1 = end
             dx, dy = x1 - x0, y1 - y0
@@ -235,7 +235,7 @@ def draw_circuit_to_file(circuit_str, filename):
                 if label.startswith("Q"):
                     label = label.replace("Q", "CPE")
 
-                # متن را کمی بالاتر می‌بریم
+                
                 ax.text((x0+x1)/2, (y0+y1)/2 + TEXT_OFFSET, label,
                         fontsize=FONT_SIZE + 2,
                         ha='center', va='center',
@@ -383,13 +383,13 @@ def draw_circuit_to_file(circuit_str, filename):
             _draw_element_on_span(ax, x0, y0, x1, y1, s)
             return
 
-        # --- منطق اصلی رسم ---
+        
         start_node = (0, 0)
         curr_x = 0
         
         elements = split_top_level(circuit_str, "-")
         
-        # رسم نود شروع
+        
         ax.plot(0, 0, 'ko', markersize=6)
 
         for el in elements:
@@ -2066,10 +2066,13 @@ def save_fit_outputs(f, Z, Z_fit, Phase_raw, chosen_fit, chosen_circuit,
             
             ax_head = fig1.add_subplot(gs1[0:4, :]); ax_head.axis('off')
             ax_head.text(0.5, 0.8, "EIS Analysis Report", fontsize=24, weight='bold', ha='center')
-            info_text = (f"File: {os.path.basename(source_file)}\n"
-                         f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
-                         f"Software: {SOFTWARE_NAME} v{SOFTWARE_VERSION}")
-            ax_head.text(0.1, 0.1, info_text, fontsize=14, linespacing=1.6)
+            info_text = (
+                f"File: {os.path.basename(source_file)}\n"
+                f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+                f"Software: {SOFTWARE_NAME}\n"
+                f"Module version: v{SOFTWARE_VERSION}"
+            )
+            ax_head.text(0.1, 0.1, info_text, fontsize=12, linespacing=1.35)
             ax_head.axhline(y=0, color='black', lw=1)
 
             ax_circ = fig1.add_subplot(gs1[4:12, :]); ax_circ.axis('off')
@@ -2098,10 +2101,19 @@ def save_fit_outputs(f, Z, Z_fit, Phase_raw, chosen_fit, chosen_circuit,
             ax_err.text(0.5, 0.5, err_text, ha='center', va='center', fontsize=14,
                         bbox=dict(boxstyle="round,pad=1", fc="#f0f0f0", ec="black"))
 
-            ax_cite = fig1.add_subplot(gs1[17:20, :]); ax_cite.axis('off')
-            cite_txt = "CITATION REQUIRED:\nPlease cite: Author Name, Journal Title (2025)."
-            ax_cite.text(0.5, 0.5, cite_txt, ha='center', fontsize=12, style='italic', color='black',
-                         bbox=dict(boxstyle="round,pad=1", fc="#ffe6e6", ec="red", lw=2))
+            ax_cite = fig1.add_subplot(gs1[17:20, :])
+            ax_cite.axis("off")
+            doi = "10.1039/D6RA08618G"
+            ax_cite.text(
+                0.5, 0.5,
+                f"Suggested citation · Behroozi et al., RSC Adv. (2026). {doi}",
+                ha="center",
+                va="center",
+                fontsize=11,
+                color="#1F4E79",
+                url=f"https://doi.org/{doi}",
+                bbox=dict(boxstyle="round,pad=0.6", fc="#F2F6FB", ec="#A7BDD1"),
+            )
             
             pdf.savefig(fig1); plt.close(fig1)
 
@@ -2138,7 +2150,7 @@ def save_fit_outputs(f, Z, Z_fit, Phase_raw, chosen_fit, chosen_circuit,
             ax_nyq.set_title("Nyquist Plot", weight='bold', fontsize=14)
             ax_nyq.legend()
             ax_nyq.grid(True, linestyle='--', alpha=0.6)
-            ax_nyq.set_aspect('auto') # تنظیم برای هم‌اندازه شدن
+            ax_nyq.set_aspect('auto') 
 
             # 2. Bode Magnitude
             ax_mag = fig3.add_subplot(gs3[1])
