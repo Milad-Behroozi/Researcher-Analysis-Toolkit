@@ -1981,19 +1981,27 @@ def write_pdf_report(
     c.drawString(2*cm, h - 2.5*cm, "Report Information")
     c.setFont("Helvetica", 11)
     lines = [
-        "Software: Researcher Analysis Toolkit — Tafel Module",
+        "Generated with Researcher Analysis Toolkit v1.0.0",
+        "Module: Tafel Analysis",
         f"Report generated: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
         f"Source file: {os.path.basename(source_file)}",
         "",
-        "Citation placeholder (to be completed after publication):",
-        "Article XXXXX",
-        "",
-        "Note: This cover page is the only place where the citation placeholder appears.",
     ]
-    y0 = h - 3.5*cm
-    for ln in lines:
-        c.drawString(2*cm, y0, ln)
-        y0 -= 0.65*cm
+    x = 2 * cm
+    y0 = h - 3.5 * cm
+    for line in lines:
+        c.drawString(x, y0, line)
+        y0 -= 0.65 * cm
+
+    doi = "10.1039/D6RA08618G"
+    citation = f"Suggested citation · Behroozi et al., RSC Adv. (2026). {doi}"
+    c.setFillColor("#1F4E79")
+    c.drawString(x, y0, citation)
+    c.linkURL(
+        f"https://doi.org/{doi}",
+        (x, y0 - 4, x + c.stringWidth(citation, "Helvetica", 11), y0 + 12),
+        thickness=0,
+    )
     c.showPage()
 
     # ---------- CORROSION MODE ----------
@@ -2628,11 +2636,11 @@ class ResearcherTafelWindow(QMainWindow):
         right.addWidget(g4)
         right.addWidget(g4b)
         right.addWidget(g5)
-        right.addStretch(1)  # باعث میشه اسکرول نرم‌تر و ظاهر بهتر بشه
+        right.addStretch(1)
 
         # ADD PANELS TO MAIN WINDOW ----------
-        main.addLayout(left, 2)     # ستون چپ (بزرگ‌تر)
-        main.addWidget(scroll, 1)   # ستون راست اسکرولی
+        main.addLayout(left, 2)     
+        main.addWidget(scroll, 1)      
 
         self.df: Optional[pd.DataFrame] = None
         self._on_reference_changed()
