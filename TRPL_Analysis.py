@@ -1006,6 +1006,15 @@ class TRPLMainWindow(QMainWindow):
                 sanity_note = self._parameter_sanity_note(self.fit_result)
                 y = self._draw_text_block(ax1, y, sanity_note, x=0.03, fontsize=10, family="monospace")
 
+                fig1.text(
+                    0.15,
+                    0.035,
+                    "Suggested citation · Behroozi et al., RSC Adv. (2026). 10.1039/D6RA08618G",
+                    fontsize=9,
+                    color="#1F4E79",
+                    url="https://doi.org/10.1039/D6RA08618G",
+                )
+
                 pdf.savefig(fig1)
 
                 # Page 2: fit and residual
