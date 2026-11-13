@@ -606,9 +606,17 @@ class PotentialConverterPro(QMainWindow):
             else:
                 with pd.ExcelWriter(file_path, engine="openpyxl") as writer:
                     converted_df.to_excel(writer, index=False, sheet_name="converted_data")
-                    pd.DataFrame(
-                        {"Conversion Summary": [converted_df.attrs.get("conversion_summary", "")]}
-                    ).to_excel(writer, index=False, sheet_name="metadata")
+                    doi_url = "https://doi.org/10.1039/D6RA08618G"
+                    pd.DataFrame({
+                        "Conversion Summary": [converted_df.attrs.get("conversion_summary", "")],
+                        "Software": ["Researcher Analysis Toolkit v1.0.0"],
+                        "Suggested citation": ["Behroozi et al., RSC Adv. (2026)."],
+                        "Article DOI": [doi_url],
+                    }).to_excel(writer, index=False, sheet_name="metadata")
+
+                    doi_cell = writer.sheets["metadata"]["D2"]
+                    doi_cell.hyperlink = doi_url
+                    doi_cell.style = "Hyperlink"
 
             QMessageBox.information(self, "Success", f"Converted file saved successfully:\n{file_path}")
         except Exception as exc:
