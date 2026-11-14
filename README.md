@@ -85,8 +85,16 @@ matrix in `packaging/RELEASE_CHECKLIST.md` is completed on another Windows
 computer. The precise completed/pending checks are listed in
 [`VALIDATION_STATUS.md`](VALIDATION_STATUS.md).
 
+```markdown
 ## Citation and license
 
-Citation metadata are provided in `CITATION.cff`. Add the final article DOI and
-complete author information after publication. A public reuse license has not
-yet been selected; see `LICENSE_PENDING.md` before making the repository public.
+If you use the Researcher Analysis Toolkit in your research, please cite the associated article.
+
+M. Behroozi, S. Sadighi, R. Luque and E. Doustkhah, “Researcher Analysis Toolkit for integrated and traceable evaluation of electrochemical, photoelectrochemical, and spectroscopic data,” *RSC Advances*, 2026. [DOI 10.1039/D6RA08618G](https://doi.org/10.1039/D6RA08618G)
+
+Citation metadata are available in [`CITATION.cff`](CITATION.cff).
+
+Software license selection is pending.
+```
+
+
