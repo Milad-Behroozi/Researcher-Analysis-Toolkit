@@ -80,10 +80,10 @@ PyInstaller, and compiles `Setup.exe` when Inno Setup 6 or 7 is installed. See
   constraints, and goodness-of-fit measures with published results.
 - Independently verify important results with controls and domain knowledge.
 
-This repository is a **v1.0.0 release candidate** until the clean-install test
-matrix in `packaging/RELEASE_CHECKLIST.md` is completed on another Windows
-computer. The precise completed/pending checks are listed in
-[`VALIDATION_STATUS.md`](VALIDATION_STATUS.md).
+Download the Windows x64 installer and its SHA-256 checksum from the
+[v1.0.0 release page](https://github.com/Milad-Behroozi/Researcher-Analysis-Toolkit/releases/tag/v1.0.0).
+
+See [VALIDATION_STATUS.md](VALIDATION_STATUS.md) for completed and pending validation checks.
 
 
 ## Citation and license
