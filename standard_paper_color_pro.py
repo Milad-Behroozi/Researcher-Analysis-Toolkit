@@ -1287,6 +1287,18 @@ class MainWindow(QMainWindow):
         description.setStyleSheet("font-size:12px; color:#405166;")
         layout.addWidget(description)
 
+        citation = QLabel(
+            "<b>Suggested citation</b><br>"
+            "Behroozi et al., <i>RSC Adv.</i> (2026).<br>"
+            '<a href="https://doi.org/10.1039/D6RA08618G">10.1039/D6RA08618G</a>'
+        )
+        citation.setTextFormat(Qt.TextFormat.RichText)
+        citation.setTextInteractionFlags(Qt.TextInteractionFlag.TextBrowserInteraction)
+        citation.setOpenExternalLinks(True)
+        citation.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        citation.setWordWrap(True)
+        layout.addWidget(citation)
+
         ok_btn = QPushButton("OK")
         ok_btn.clicked.connect(dialog.accept)
         layout.addWidget(ok_btn)
