@@ -1,21 +1,17 @@
-# ساخت فایل Setup در ویندوز
+# Building the Windows Installer
 
-نسخه آماده شده است و برای ساخت خروجی نهایی فقط این مراحل را انجام بده:
+1. Keep your internet connection active during the build. If Python 3.11 is unavailable, the build script downloads the official Python 3.11.9 installer from `python.org` and verifies its SHA-256 checksum.
+2. Install **Inno Setup** from its official website. The build script supports Inno Setup 6 and 7.
+3. Open the `packaging` folder.
+4. Double-click `build_windows.bat`.
+5. Keep the build window open until the build finishes.
 
-1. اتصال اینترنت را برقرار نگه دار. اگر Python 3.11 موجود نباشد، فایل ساخت
-   نسخهٔ رسمی 3.11.9 را از python.org دانلود و SHA-256 آن را بررسی می‌کند.
-2. برنامه **Inno Setup** را از وب‌سایت رسمی آن نصب کن؛ فایل ساخت با نسخه‌های
-   7 و 6 سازگار است.
-3. وارد پوشه `packaging` شو.
-4. روی فایل `build_windows.bat` دوبار کلیک کن.
-5. تا پایان ساخت، پنجره را نبند.
-
-خروجی نهایی در این مسیر ساخته می‌شود:
+The installer is saved to:
 
 ```text
 packaging\output\Researcher_Analysis_Toolkit_v1.0.0_Setup.exe
 ```
 
-برای تست واقعی، فایل Setup را روی یک ویندوز تمیز که نرم‌افزار روی آن نصب نیست اجرا کن. پس از اولین اجرا، روی **Initialize Environment** بزن و سپس حداقل یک فایل نمونه را در هر ماژول اصلی آزمایش کن.
+Test the installer on a clean Windows system. When you launch the toolkit for the first time, click **Initialize Environment** and wait for it to finish. Then test at least one sample file in each main module.
 
-نکته: به دلیل نداشتن امضای دیجیتال، ممکن است Windows SmartScreen در نخستین اجرا هشدار نشان دهد. این موضوع به معنی خراب بودن فایل نیست؛ برای انتشار رسمی بهتر است همراه فایل Setup مقدار SHA-256 نیز منتشر شود.
+Windows SmartScreen may display a warning the first time you run the unsigned installer. For the official release, publish the SHA-256 checksum alongside the installer so users can verify the integrity of their download.
