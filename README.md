@@ -69,7 +69,7 @@ packaging\build_windows.bat
 
 The script creates an isolated packaging environment, builds the launcher with
 PyInstaller, and compiles `Setup.exe` when Inno Setup 6 or 7 is installed. See
-`packaging/BUILD_SETUP_FA.md` and `packaging/RELEASE_CHECKLIST.md`.
+`packaging/BUILD_SETUP.md` and `packaging/RELEASE_CHECKLIST.md`.
 
 ## Scientific-use notice
 
