@@ -6788,7 +6788,10 @@ class MainWindow(QMainWindow):
     <div class="date">Date & Time:<br>{datetime.datetime.now().strftime("%Y-%m-%d &nbsp;|&nbsp; %H:%M:%S")}</div>
     
     <div class="citation-box">
-        <h3 style="margin-top:0; color:#B45309; border-bottom: 1px solid #FCD34D; padding-bottom: 8px;">Reproducibility note</h3>
+        <h3 style="margin-top:0; color:#B45309; border-bottom: 1px solid #FCD34D; padding-bottom: 8px;">Reproducibility and citation</h3>
+        <strong>XPS module version:</strong> {APP_VERSION}<br>
+        <strong>Suggested citation:</strong> Behroozi et al., <i>RSC Adv.</i> (2026).
+        <a href="https://doi.org/10.1039/D6RA08618G">10.1039/D6RA08618G</a><br><br>
         Report the background, line shape, parameter constraints, fit interval, and charge-reference method in any publication. Keep the accompanying audit JSON and numerical CSV files with the analysis record.
     </div>
   </div>
