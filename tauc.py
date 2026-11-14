@@ -51,6 +51,10 @@ except ImportError:
 
 APP_NAME = "Researcher Analysis Toolkit - Tauc Plot"
 OUTPUT_TECHNIQUE = "Tauc Plot Analysis"
+APP_VERSION = "1.0.0"
+ARTICLE_DOI = "10.1039/D6RA08618G"
+ARTICLE_URL = f"https://doi.org/{ARTICLE_DOI}"
+ARTICLE_CITATION = f"Suggested citation · Behroozi et al., RSC Adv. (2026). {ARTICLE_DOI}"
 
 
 def resource_path(filename: str) -> str:
@@ -1047,7 +1051,9 @@ class TaucPlotWindow(QMainWindow):
             with open(txt_path, "w", encoding="utf-8") as f:
                 f.write(APP_NAME + "\n")
                 f.write("=" * len(APP_NAME) + "\n\n")
-                f.write(f"Generated: {self.last_result['timestamp']}\n\n")
+                f.write(f"Generated: {self.last_result['timestamp']}\n")
+                f.write(f"Software version: {APP_VERSION}\n")
+                f.write(f"{ARTICLE_CITATION}\n{ARTICLE_URL}\n\n")
                 f.write("INPUTS\n")
                 for k, v in self.last_result["inputs"].items():
                     f.write(f"- {k}: {v}\n")
@@ -1089,6 +1095,18 @@ class TaucPlotWindow(QMainWindow):
 
         c.setFont("Helvetica", 10)
         c.drawString(left, y, f"Generated: {self.last_result['timestamp']}")
+        y -= 0.5 * cm
+        c.drawString(left, y, f"Software version: {APP_VERSION}")
+        y -= 0.5 * cm
+
+        c.setFillColor("#1F4E79")
+        c.drawString(left, y, ARTICLE_CITATION)
+        c.linkURL(
+            ARTICLE_URL,
+            (left, y - 4, left + c.stringWidth(ARTICLE_CITATION, "Helvetica", 10), y + 11),
+            thickness=0,
+        )
+        c.setFillColor("black")
         y -= 0.8 * cm
 
         c.setFont("Helvetica-Bold", 11)
