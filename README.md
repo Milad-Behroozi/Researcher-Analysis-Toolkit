@@ -86,6 +86,7 @@ computer. The precise completed/pending checks are listed in
 [`VALIDATION_STATUS.md`](VALIDATION_STATUS.md).
 
 ```markdown
+
 ## Citation and license
 
 If you use the Researcher Analysis Toolkit in your research, please cite the associated article.
