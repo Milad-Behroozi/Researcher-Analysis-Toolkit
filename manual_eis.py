@@ -3129,19 +3129,28 @@ class ResearcherEISPro(tk.Tk):
             # ==========================================
             pdf.add_page()
                 
-            pdf.set_font("Helvetica", "B", 26)
-            pdf.cell(0, 100, "", ln=True) 
+            pdf.set_font("Helvetica", "B", 20)
+            pdf.cell(0, 100, "", ln=True)
             pdf.cell(0, 20, self.software_name, ln=True, align="C")
             pdf.set_font("Helvetica", "", 14)
             pdf.cell(0, 20, f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", ln=True, align="C")
             pdf.cell(0, 20, "Official Analysis Report", ln=True, align="C")
 
-            # --- Citation Request ---
             pdf.ln(30)
-            pdf.set_font("Helvetica", "I", 12)
-            pdf.cell(0, 10, "If you use this software in your research, please cite the following paper:", ln=True, align="C")
-            pdf.set_font("Helvetica", "B", 12)
-            pdf.cell(0, 10, "XXX", ln=True, align="C") # write paper citation here
+            pdf.set_font("Helvetica", "", 11)
+            pdf.cell(0, 7, "Toolkit version: 1.0.0", ln=True, align="C")
+
+            doi = "10.1039/D6RA08618G"
+            pdf.set_font("Helvetica", "U", 11)
+            pdf.set_text_color(31, 78, 121)
+            pdf.cell(
+                0, 8,
+                f"Suggested citation · Behroozi et al., RSC Adv. (2026). {doi}",
+                ln=True,
+                align="C",
+                link=f"https://doi.org/{doi}",
+            )
+            pdf.set_text_color(0, 0, 0)
             
             # ==========================================
             # Page 2: Circuit & Parameters
