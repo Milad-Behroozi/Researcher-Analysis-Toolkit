@@ -1,12 +1,12 @@
-cff-version: 1.2.0
-message: "If you use this software, please cite the software release and the associated article once available."
-title: "Researcher Analysis Toolkit for Integrated Analysis of Electrochemical and Photoelectrochemical Data"
+cff-version: "1.2.0"
+message: "If you use this software in your research, please cite the article below."
+title: "Researcher Analysis Toolkit"
 type: software
-version: 1.0.0
-date-released: 2026-08-22
+version: "1.0.0"
 authors:
   - family-names: Behroozi
     given-names: Milad
+repository-code: "https://github.com/Milad-Behroozi/Researcher-Analysis-Toolkit"
 abstract: "A graphical, modular toolkit for electrochemical, photoelectrochemical, optical, and spectroscopic data analysis."
 keywords:
   - electrochemistry
@@ -14,3 +14,20 @@ keywords:
   - impedance spectroscopy
   - scientific software
 
+preferred-citation:
+  type: article
+  title: "Researcher Analysis Toolkit for integrated and traceable evaluation of electrochemical, photoelectrochemical, and spectroscopic data"
+  authors:
+    - family-names: Behroozi
+      given-names: Milad
+    - family-names: Sadighi
+      given-names: Sepideh
+    - family-names: Luque
+      given-names: Rafael
+    - family-names: Doustkhah
+      given-names: Esmail
+  journal: "RSC Advances"
+  year: 2026
+  date-published: "2026-11-12"
+  doi: "10.1039/D6RA08618G"
+  url: "https://doi.org/10.1039/D6RA08618G"
