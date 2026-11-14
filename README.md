@@ -88,13 +88,13 @@ computer. The precise completed/pending checks are listed in
 
 ## Citation and license
 
--If you use the Researcher Analysis Toolkit in your research, please cite the associated article.
+- If you use the Researcher Analysis Toolkit in your research, please cite the associated article.
 
--M. Behroozi, S. Sadighi, R. Luque and E. Doustkhah, “Researcher Analysis Toolkit for integrated and traceable evaluation of electrochemical, photoelectrochemical, and spectroscopic data,” *RSC Advances*, 2026. [DOI 10.1039/D6RA08618G](https://doi.org/10.1039/D6RA08618G)
+- M. Behroozi, S. Sadighi, R. Luque and E. Doustkhah, “Researcher Analysis Toolkit for integrated and traceable evaluation of electrochemical, photoelectrochemical, and spectroscopic data,” *RSC Advances*, 2026. [DOI 10.1039/D6RA08618G](https://doi.org/10.1039/D6RA08618G)
 
--Citation metadata are available in [`CITATION.cff`](CITATION.cff).
+- Citation metadata are available in [`CITATION.cff`](CITATION.cff).
 
--Software license selection is pending.
+- Software license selection is pending.
 
 
 
