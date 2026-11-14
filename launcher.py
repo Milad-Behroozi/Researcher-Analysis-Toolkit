@@ -44,7 +44,7 @@ REQ_FILE = BASE_DIR / "requirements.txt"
 PYTHON_INSTALLER = BASE_DIR / "python-3.11.9-amd64.exe"
 LOG_FILE = APP_DATA_DIR / "install_deps.log"
 DEPS_MARKER = VENV_DIR / "deps_installed.ok"
-ARTICLE_URL = ""
+ARTICLE_URL = "https://doi.org/10.1039/D6RA08618G"
 GUIDE_PATH = BASE_DIR / "USER_GUIDE.md"
 
 MODULES = {
